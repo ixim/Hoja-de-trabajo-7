@@ -14,11 +14,11 @@ public class BinaryTree<E>
     public BinaryTree()
     {
         raiz=null;
-    }      
+    }
     public void insertar (int info)
     {
         Nodo nuevo;
-        nuevo = new Nodo ();
+        nuevo = new Nodo();
         nuevo.info = info;
         nuevo.izq = null;
         nuevo.der = null;
@@ -26,17 +26,17 @@ public class BinaryTree<E>
             raiz = nuevo;
         else
         {
-            Nodo anterior = null, reco;
-            reco = raiz;
+            Nodo anterior = null, reco;//reco es un nodo igual a anterior
+            reco = raiz;//se asigna valor a reco, en este caso referencia a la raiz
             while (reco != null)
             {
                 anterior = reco;
-                if (info < reco.info)
+                if (info > reco.info)
                     reco = reco.izq;
                 else
                     reco = reco.der;
             }
-            if (info < anterior.info)
+            if (info > anterior.info)
                 anterior.izq = nuevo;
             else
                 anterior.der = nuevo;
