@@ -1,27 +1,25 @@
 
 package diccionario;
-import java.util.Scanner;
+import java.util.ArrayList;
 import java.io.*;
 
 public class Diccionario 
 {
     public static void main(String[] args) 
     {
+        ArrayList array = new ArrayList();
+        String linea = "";
         try
         {
-            FileReader archivo = new FileReader("diccionario.txt"); //Abrir el fichero indicado en la variable 
-            int caracter1 = 0;
-            do
+            FileReader leerArchivo = new FileReader("C:\\Users\\Dila Margarita\\Documents\\ixim\\UVG\\semestre 6\\algoritmos y estructura de datos\\hoja de trabajo 7\\Diccionario\\src\\diccionario");
+            BufferedReader buffer = new BufferedReader(leerArchivo);
+            while ((linea = buffer.readLine()) != null)
             {
-                caracter1 = archivo.read(); //Leer el primer carácter	
+                array.add(linea);
             }
-            while(caracter1 != 0); //Se recorre el fichero hasta encontrar el carácter -1 que marca el final del fichero
-				
-            archivo.close(); //Cerrar el fichero
+            buffer.close();
         }
-        catch (Exception e)
-        {
-            System.out.println("Error de lectura del fichero");
-        }
+        catch (Exception ex)
+        {   }
     }
 }
